@@ -1,5 +1,4 @@
-// white-noise-processor.js
-class WhiteNoiseProcessor extends AudioWorkletProcessor {
+class CustomWaveProcessor extends AudioWorkletProcessor {
   pOffset = 0;
   pWavelength = null;
   pChannellength = null;
@@ -14,7 +13,6 @@ class WhiteNoiseProcessor extends AudioWorkletProcessor {
   }
 
   process (inputs, outputs, parameters) {
-    //console.log("process");
     const output = outputs[0]
     output.forEach(channel => {
       this.pChannellength = channel.length;
@@ -23,12 +21,6 @@ class WhiteNoiseProcessor extends AudioWorkletProcessor {
 
       }
     })
-    //output.forEach(channel => {
-      //
-      //channel = this.getBufferValues(this.pOffset, channel.length);
-      //channel = this.waveData.slice(this.pOffset, this.pOffset+this.pChannellength);
-
-    //})
 
     this.pOffset += this.pChannellength;
     this.pOffset = this.pOffset % this.pWavelength;
@@ -52,4 +44,4 @@ class WhiteNoiseProcessor extends AudioWorkletProcessor {
   }
 }
 
-registerProcessor('white-noise-processor', WhiteNoiseProcessor)
+registerProcessor('CustomWaveProcessor', CustomWaveProcessor)

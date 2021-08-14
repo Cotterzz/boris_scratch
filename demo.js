@@ -5,11 +5,9 @@ buttons.innerHTML += "<button type='button' id='button2'>button2</button><br/>";
 
 async function setUpAudio(){
 	const audioContext = new AudioContext()
-	await audioContext.audioWorklet.addModule('white-noise-processor.js');
-	const whiteNoiseNode = new AudioWorkletNode(audioContext, 'white-noise-processor')
-	whiteNoiseNode.connect(audioContext.destination);
-
-	//whiteNoiseNode.play()
+	await audioContext.audioWorklet.addModule('audio/CustomWaveProcessor.js');
+	const customWaveNode = new AudioWorkletNode(audioContext, 'CustomWaveProcessor')
+	customWaveNode.connect(audioContext.destination);
 }
 
 // ADD BUTTON FUNCTION CALLS
