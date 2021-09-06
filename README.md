@@ -1,2 +1,2 @@
 # generic
-generic application framework
+generic application framework for mixed audio and visual application
