@@ -11,7 +11,7 @@ class CyclicWaveForm {
 	
 	createSamplePoints(){
 
-	}
+	}                                                                                                                               
 
 	createRenderPoints(){
 		
