@@ -21,6 +21,11 @@ async function setUpAudio(){
 
 	sendData({label:'raw', rawdata:rawAudio.getChannelData(0)});
 
+	document.addEventListener( 'touchmove', (event) => {onDocumentMouseMove(event)}, false );
+	document.addEventListener( 'touchstart', (event) => {onDocumentMouseDown(event)}, false );
+	document.addEventListener( 'touchend', (event) => {onDocumentMouseUp(event)}, false );
+
+
 	document.addEventListener( 'mousemove', (event) => {onDocumentMouseMove(event)}, false );
 	document.addEventListener( 'mousedown', (event) => {onDocumentMouseDown(event)}, false );
 	document.addEventListener( 'mouseup', (event) => {onDocumentMouseUp(event)}, false );
@@ -72,19 +77,21 @@ document.getElementById("button3").onclick = function () {
 };
 */
 function onDocumentMouseDown(event){
+	event.preventDefault();
 	holdingPlayHead = true;
 	holdingOldPosition = event.pageX;
 	sendData({label:'playheadspeed', velocity: (event.pageX - holdingOldPosition)/5});
 }
 
 function onDocumentMouseUp(event){
+	event.preventDefault();
 	holdingPlayHead = false;
 	sendData({label:'playheadstatus', status: "free"});
 	//sendData({label:'playhead', position:event.pageX/1000, velocity: 1});
 }
 
 function onDocumentMouseMove(event){
-
+	event.preventDefault();
 	if(holdingPlayHead){
 		sendData({label:'playheadspeed', velocity: (event.pageX - holdingOldPosition)/5});
 		holdingOldPosition = event.pageX;
