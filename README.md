@@ -1,2 +1,2 @@
-# generic
-generic application framework for mixed audio and visual application
+# boris scratch
+proof of concept - scratchable video
