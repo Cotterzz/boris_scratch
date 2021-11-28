@@ -10,7 +10,7 @@ body {
 	position: absolute;
 	top: 0px;
 	left:0px;
-	z-index: 1;
+	z-index: 2;
 	width:100%;
 }
 
@@ -22,9 +22,12 @@ body {
 
 #overlay_right {
 	position: absolute;
-	right:0px;
+	right:50%;
 }
-
+#vc {
+	margin: auto;
+	width:60%;
+}
 button {
 	width:60px;
 }

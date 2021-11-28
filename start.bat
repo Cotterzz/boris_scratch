@@ -1,1 +1,1 @@
-http-server C:\Users\j0hnc\Documents\GitHub\generic -c-1
+http-server C:\Users\j0hnc\GITHUB\generic -c-1

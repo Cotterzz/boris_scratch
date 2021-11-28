@@ -1,1 +1,0 @@
-class Envelope extends WaveForm
